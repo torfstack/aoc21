@@ -9,14 +9,12 @@ fn main() {
 fn solution1(lines: &Vec<u32>) {
     let mut current: u32 = 99_999;
     let mut count: u32 = 0;
-    lines[..lines.len()-1]
-        .iter()
-        .for_each(|&n| {
-            if n > current {
-                count = count+1;
-            }
-            current = n;
-        });
+    lines[..lines.len() - 1].iter().for_each(|&n| {
+        if n > current {
+            count = count + 1;
+        }
+        current = n;
+    });
 
     println!("Solution 1: {}", count)
 }
@@ -25,8 +23,8 @@ fn solution2(lines: &Vec<u32>) {
     let mut current: u32 = 99_999;
     let mut count: u32 = 0;
 
-    for i in 0..lines.len()-2 {
-        let pivot = lines[i] + lines[i+1] + lines[i+2];
+    for i in 0..lines.len() - 2 {
+        let pivot = lines[i] + lines[i + 1] + lines[i + 2];
         if pivot > current {
             count = count + 1;
         }
@@ -44,5 +42,5 @@ fn read_input() -> Vec<u32> {
         .map(|s| s.parse::<u32>())
         .filter(|p| p.is_ok())
         .map(|p| p.unwrap())
-        .collect()
+        .collect();
 }
